@@ -12,9 +12,9 @@ function setCookie(c_name,value,expiredays) {
 	document.cookie = c_name+ "=" +escape(value)+ ((expiredays==null) ? "" : ";expires="+exdate.toUTCString());
 }
 
+// in production, use server side language to get unique number value of video and echo after mv_
 function rememberPosition() {
-	// in production, use server side language to get unique number value of video and echo after mv_
-	setCookie("mv_1234", Math.round(jwplayer('vid').getPosition()),2); // 2 = days to store cookie
+	setCookie("mv_1234", Math.round(jwplayer('video').getPosition()),2); // 2 = days to store cookie
 	setTimeout("rememberPosition()", 5000); 
 }
 
